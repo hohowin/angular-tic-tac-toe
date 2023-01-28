@@ -1,27 +1,64 @@
-# AngularTicTacToe
+# angular-tic-tac-toe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+Youtube: [Angular for Beginners - Let's build a Tic-Tac-Toe PWA](https://youtu.be/G0bBLvWXBvc)
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Global Install:
 
-## Code scaffolding
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Create app, choose `SCSS`:
 
-## Build
+```
+ng new my-app
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Development
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1\. Remove all code in `app.component.html` except for the line `<router-outlet></router-outlet>`.
 
-## Running end-to-end tests
+2\. Generate Square:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng generate component square
+```
 
-## Further help
+3\. Variable can directly be used in html. E.g.:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+In app.module.ts `<app-square></app-square>`
+In ts, `rando = Math.random()`, then in html, `{{ rando }}`
+
+4\. For passing input from parent component, use `@input()` declarator. (Note: Only input is a dumb component)
+
+5\. Try:
+
+Square ts `@Input() val: 'X' | 'O' = 'X';`
+Square html `<button>{{ val }}</button>`
+app html `<app-square [val]="'O'"></app-square>`
+
+6\. Generate smart component board (has state and can change):
+
+```bash
+ng generate component board
+```
+
+- constructor is for dependency injection
+- ngOnInit is a lifecycle hook for initial setup
+- [get](https://stackoverflow.com/questions/22823946/can-javascript-function-name-contain-a-space#:~:text=No%2C%20in%20javascript%20a%20function,a%20property%20to%20a%20object.), [See here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+- [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+
+7\. Copy some code
+
+8\. Add pwa module
+
+```bash
+ng add @angular/pwa
+ng build
+```
+
+
