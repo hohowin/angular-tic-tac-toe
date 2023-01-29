@@ -52,13 +52,19 @@ ng generate component board
 - [get](https://stackoverflow.com/questions/22823946/can-javascript-function-name-contain-a-space#:~:text=No%2C%20in%20javascript%20a%20function,a%20property%20to%20a%20object.), [See here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
 - [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 
-7\. Copy some code
 
-8\. Add pwa module
+---
+
+# Transform into PWA
 
 ```bash
 ng add @angular/pwa
 ng build
-```
 
+# Optional. Run it and inspect it in developer mode and lighthouse
+npm install -g http-server
+http-server -p 8080 -c-1 dist/angular-tic-tac-toe
+```
+`ngsw-config.json` is `angular service worker config`
+`manifest.webmanifest` concerns about installability
 
